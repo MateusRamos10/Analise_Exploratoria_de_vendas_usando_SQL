@@ -31,7 +31,10 @@ Os dados foram obtidos de um curso, portanto está indisponível para download.
 ## Mãos a obra...
 
 ### 1. Entendendo os Dados
-O foco nesse trabalho é fazer uma análise dos dados. Então partindo do pressuposto que os dados já foram gerados, limpos e carregados no SGBD escolhido, é necessário fazer uma primeira análise para entender os dados que estão contidos e quais informações esses dados podem fornecer. O MySQL Worchbench tem uma função que gera um esquema visual das tabelas (diagrama EER), que será um guia para as consultas. Abaixo estão os passos para gerar esse diagrama automaticamente:
+O foco nesse trabalho é fazer uma análise dos dados. Então partindo do pressuposto que os dados já foram gerados, limpos e carregados no SGBD escolhido, é necessário fazer uma primeira análise para entender os dados que estão contidos e quais informações esses dados podem fornecer. 
+
+### 1.1 Diagrama EER
+O MySQL Worchbench tem uma função que gera um esquema visual das tabelas (diagrama EER), que será um guia para as consultas. Abaixo estão os passos para gerar esse diagrama automaticamente:
 
 >Database/Reverse Engineer
 >
@@ -57,6 +60,16 @@ Como resultado dessa representação, temos algumas respostas:
 <br>
 Vemos que a tabela **notas_fiscais** é central e interliga todas as outras. Lembrando que aqui não tem "certo e errado", são as regras do negócio que indicam qual deve ser o relacionamento entre as tabelas.
 
+### 1.2 Exploração inicial
+Após analisar o relacionamento entre as tabelas, é necessário conhecer quais os registros que cada tabela tem, para esse passo simples, usei SELECT para todas as tabelas.
+
+```SQL
+SELECT * FROM notas_fiscais LIMIT 10;
+SELECT * FROM itens_notas_fiscais LIMIT 10;
+SELECT * FROM tabela_de_clientes LIMIT 10;
+SELECT * FROM tabela_de_produtos LIMIT 10;
+SELECT * FROM tabela_de_vendedores LIMIT 10;
+```
 
 
 
