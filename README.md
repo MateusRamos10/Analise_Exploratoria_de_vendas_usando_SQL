@@ -115,10 +115,38 @@ Outra representação que o MySQL Workbench tem, é uma representação das prop
 <br>
 <br>
 
-### 2 Análise Exploratória
-Após visualizar o cabeçalho de todas as tabelas, verificar as informações com mais atenção e conhecer como está estruturado a base de dados, já se pode usar a criatividade e aplicar as consultas para extrair as informações e análises direcionadas pelos dados e pelas **perguntas**. Para a organização desse etapa, separei as **perguntas e contextos** para serem respondidas pelos dados:
+---
 
-**1. Qual o melhor produto?**
+### 2 Análise Exploratória
+Após visualizar o cabeçalho de todas as tabelas, verificar as informações com mais atenção e conhecer como está estruturado a base de dados, já se pode usar a criatividade e aplicar as consultas para extrair as informações e análises direcionadas pelos dados e pelas **perguntas**. Para a organização desse etapa, separei algumas **perguntas e contextos** para serem respondidas pelos dados:
+
+<br>
+
+**Quantos produtos são comercializados e qual o mais vendido?**
+```SQL
+SELECT DISTINCT CODIGO_DO_PRODUTO, NOME_DO_PRODUTO FROM tabela_de_produtos 
+	ORDER BY CODIGO_DO_PRODUTO DESC;
+```
+<p align="left">
+  <img alt="Dashboard" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/0ea88fc7-9831-40ef-ad57-02f2c35bff85">
+</p>
+Com essa instrução temos o resultado de 31 produtos sendo comercializados
+
+
+```SQL
+SELECT inf.CODIGO_DO_PRODUTO, p.NOME_DO_PRODUTO, COUNT(inf.QUANTIDADE) AS Total_Vendas 
+	FROM itens_notas_fiscais inf
+	INNER JOIN tabela_de_produtos p
+    ON inf.CODIGO_DO_PRODUTO = p.CODIGO_DO_PRODUTO
+    GROUP BY CODIGO_DO_PRODUTO
+    ORDER BY Total_Vendas desc
+    LIMIT 5; 
+```
+<p align="left">
+  <img alt="Dashboard" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/8f447803-23e4-4c43-974f-bb446cea938d">
+</p>
+E temos aqui o top 5 produtos mais vendidos
+
 
 
 
