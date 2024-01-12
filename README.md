@@ -122,7 +122,7 @@ Após visualizar o cabeçalho de todas as tabelas, verificar as informações co
 
 <br>
 
-**Quantos produtos são comercializados e qual o mais vendido?**
+### 1. Quantos produtos são comercializados e qual o mais vendido?
 ```SQL
 SELECT DISTINCT CODIGO_DO_PRODUTO, NOME_DO_PRODUTO FROM tabela_de_produtos 
 	ORDER BY CODIGO_DO_PRODUTO DESC;
@@ -130,8 +130,6 @@ SELECT DISTINCT CODIGO_DO_PRODUTO, NOME_DO_PRODUTO FROM tabela_de_produtos
 <p align="left">
   <img alt="Dashboard" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/0ea88fc7-9831-40ef-ad57-02f2c35bff85">
 </p>
-Com essa instrução temos o resultado de 31 produtos sendo comercializados
-
 
 ```SQL
 SELECT inf.CODIGO_DO_PRODUTO, p.NOME_DO_PRODUTO, COUNT(inf.QUANTIDADE) AS Total_Vendas 
@@ -143,58 +141,98 @@ SELECT inf.CODIGO_DO_PRODUTO, p.NOME_DO_PRODUTO, COUNT(inf.QUANTIDADE) AS Total_
     LIMIT 5; 
 ```
 <p align="left">
-  <img alt="Dashboard" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/8f447803-23e4-4c43-974f-bb446cea938d">
+  <img alt="Dashboard" width="95%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/6c5468a8-6500-47dd-b599-43bb7c153f4d">
 </p>
-E temos aqui o top 5 produtos mais vendidos
+
+Temos o resultado de 31 produtos sendo comercializados.
+E também o top 5 produtos mais vendidos.
+
+### 2. Qual o cliente mais fiel?
+```SQL
+SELECT NOME, VOLUME_DE_COMPRA FROM tabela_de_clientes 
+	ORDER BY VOLUME_DE_COMPRA desc LIMIT 5;
+```
+<p align="left">
+  <img alt="Dashboard" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/7399d564-9e87-4076-b296-f793153274ea">
+</p>
+
+```SQL
+SELECT NOME, ENDERECO_1, CIDADE, BAIRRO, ESTADO, CEP 
+	FROM tabela_de_clientes 
+	WHERE CPF = 50534475787;
+```
+<p align="left">
+  <img alt="Dashboard" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/0cb3b642-5141-4a43-86cc-7cabb5e47792">
+</p>
+Nesses 4 anos Abel Silva é o o cliente que mais comprou com um volume de $ 26.000.
+
+Em um cenário onde aconteça um sorteio, Abel teria mais bilhetes e probabilidade maior de ganhar, com seu endereço é possível ter uma previsão de um frete se precisar enviar algum prêmio para esse cliente.
+
+### 3. Em um cenário onde todos os vendedores tem o mesmo salário-base e eles recebem um percentual de vendas. Qual o vendedor com maior percentual de comissão?
+```SQL
+SELECT NOME, PERCENTUAL_COMISSAO FROM tabela_de_vendedores 
+	ORDER BY PERCENTUAL_COMISSAO DESC;
+```
+<p align="left">
+  <img alt="Dashboard" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/212b8fc9-b838-4c7d-97ae-787907c99228">
+</p>
+
+```SQL
+SELECT v.NOME, COUNT(nf.MATRICULA) as Quantidade_Vendida FROM notas_fiscais nf
+	INNER JOIN tabela_de_vendedores v
+    	ON nf.MATRICULA = v.matricula
+	GROUP BY v.NOME
+	ORDER BY Quantidade_Vendida DESC;
+```
+
+<p align="left">
+  <img alt="Dashboard" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/2904c45f-ece2-4b80-9a1b-48b9f7081e4b">
+</p>
+Roberta e Péricles são os vendedores que mais ganham comissão.
+Porém quando verificamos o volume de vendas de cada vendedor, vemos que Péricles não tem nenhuma venda, então Roberta é a vendedora com mais comissão.
+Também é possível avaliar que dos outros dois vendedores, ela é a que menos vendeu.
+Cabe uma avaliação da Roberta e também avaliar uma promoção para o Márcio e a Cláudia.
+
+### 4. Quantos clientes ainda não compraram no nosso site?
 
 
 
 
-**2. Qual o melhor cliente?**
+
+
+### 5. Qual o melhor estado?
 
 
 
-**3. Em um cenário onde todos os vendedores tem o mesmo salário-base e eles recebem um percentual de acordo com as vendas. Qual o vendedor com maior percentual de comissão?**
+### 6. Qual o melhor vendedor?
 
 
 
-**4. Quantos clientes ainda não compraram no nosso site?**
-
-
-
-**5. Qual o melhor estado?**
-
-
-
-**6. Qual o melhor vendedor?**
-
-
-
-**7. Quais os níveis de senioridade dos vendedores de acordo com o tempo na empresa? 
-	Senior > 3 anos
-	Pleno > 2 e < 3 anos
-	Junior 0 a 2 anos
+### 7. Quais os níveis de senioridade dos vendedores de acordo com o tempo na empresa? 
+**Senior > 3 anos 
+Pleno > 2 e < 3 anos
+Junior 0 a 2 anos
 Sendo que nossa base tem registros de 2014 a 2017**
 
 
 
-**8. Qual a venda que teve o maior faturamento?**
+### 8. Qual a venda que teve o maior faturamento?
 
 
 
-**9. Qual a venda que teve a maior quantidade?**
+### 9. Qual a venda que teve a maior quantidade?
 
 
 
-**10. Qual geração compra mais, X,Y ou Z? Quero lançar um novo sabor, qual meu publico alvo?**
+### 10. Qual geração compra mais, X,Y ou Z? Quero lançar um novo sabor, qual meu publico alvo?
 
 
 
-**11. Quero fazer um evento, em que região posso promover esse evento?**
+### 11. Quero fazer um evento, em que região posso promover esse evento?
 
 
 
-**12. Em um sorteio que cada cliente ganha 1 bilhete por compra, qual cliente tem mais chance de ganhar e qual a localização desse cliente, antecipando o valor do frete em um envio de produtos?**
+### 12. Em um sorteio que cada cliente ganha 1 bilhete por compra, qual cliente tem mais chance de ganhar e qual a localização desse cliente, antecipando o valor do frete em um envio de produtos?
 
 
 
