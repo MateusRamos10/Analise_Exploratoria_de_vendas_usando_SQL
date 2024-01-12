@@ -128,7 +128,7 @@ SELECT DISTINCT CODIGO_DO_PRODUTO, NOME_DO_PRODUTO FROM tabela_de_produtos
 	ORDER BY CODIGO_DO_PRODUTO DESC;
 ```
 <p align="left">
-  <img alt="Dashboard" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/0ea88fc7-9831-40ef-ad57-02f2c35bff85">
+  <img alt="Dashboard" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/a87baa66-80c2-4d9f-882d-d27ade924631">
 </p>
 
 ```SQL
