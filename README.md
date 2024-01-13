@@ -1,8 +1,14 @@
 [![author](https://img.shields.io/badge/author-mateusramos-red.svg)](https://www.linkedin.com/in/mateus-simoes-ramos/) ![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)
 # Storytelling usando SQL em uma Análise Exploratória
 <p align="center">
-  <img alt="Dashboard" width="85%" src="https://github.com/MateusRamos10/Excel_Clients/assets/43836795/9b526b74-a74c-4644-a6e6-ff5d83740101">
+	<img alt="Capa SQL" width="75%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/14801ef6-65f6-4cbc-876c-065b5cf85533">
 </p>
+
+<p align="right">
+<a href="https://br.freepik.com/vetores-gratis/ilustracao-do-conceito-abstrato-de-armazenamento-de-big-data_12291144.htm#page=2&query=people%20sql&position=0&from_view=search&track=ais&uuid=2f3d7578-d259-48d6-add8-34cc7949006b" >Imagem de vectorjuice
+</a> no Freepik
+</p>
+<br>
 
 ## Objetivo do Estudo
 O objetivo deste projeto é realizar uma análise exploratória de uma base de dados que contém: **produtos, clientes, vendedores e nota fiscal** para identificar informações a fim de contextualizar os dados para melhorar o direcionamento do negócio. Para concentrar na **análise de dados** não irei realizar algumas operações importantes de SQL como executar um **CRUD** ou verificar 
@@ -271,4 +277,4 @@ Sendo que nossa base tem registros de 2014 a 2017**
 
 ## Resultados
 
-
+<a href="https://br.freepik.com/vetores-gratis/ilustracao-do-conceito-abstrato-de-armazenamento-de-big-data_12291144.htm#page=2&query=people%20sql&position=0&from_view=search&track=ais&uuid=2f3d7578-d259-48d6-add8-34cc7949006b">Imagem de vectorjuice</a> no Freepik
