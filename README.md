@@ -200,13 +200,20 @@ Também é possível avaliar que dos outros dois vendedores, ela é a que menos 
 Cabe uma avaliação da Roberta e também avaliar uma promoção para o Márcio e a Cláudia.
 
 ### 4. Quantos clientes ainda não compraram no nosso site?
+```SQL
+SELECT 
+    COUNT(*) AS NUNCA_COMPRARAM
+FROM tabela_de_clientes
+WHERE PRIMEIRA_COMPRA = 0
+GROUP BY PRIMEIRA_COMPRA;
+```
+<p align="left">
+  <img alt="" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/4780299f-342e-44ef-876f-4a770e52e052">
+</p>
 
+Na tabela de cliente há uma coluna que expressa se um cliente cadastro já fez uma compra ou não, ao fazer essa agregação temos o resultado de quantos cliente estão inativos no site de compras.
 
-
-
-
-
-### 5. Qual o melhor estado?
+### 5. Qual o estado que mais comprou?
 
 
 
@@ -277,4 +284,5 @@ Sendo que nossa base tem registros de 2014 a 2017**
 
 ## Resultados
 
-<a href="https://br.freepik.com/vetores-gratis/ilustracao-do-conceito-abstrato-de-armazenamento-de-big-data_12291144.htm#page=2&query=people%20sql&position=0&from_view=search&track=ais&uuid=2f3d7578-d259-48d6-add8-34cc7949006b">Imagem de vectorjuice</a> no Freepik
+
+
