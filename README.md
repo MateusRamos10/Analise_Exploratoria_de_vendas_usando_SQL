@@ -211,11 +211,48 @@ GROUP BY PRIMEIRA_COMPRA;
   <img alt="" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/4780299f-342e-44ef-876f-4a770e52e052">
 </p>
 
-Na tabela de cliente há uma coluna que expressa se um cliente cadastro já fez uma compra ou não, ao fazer essa agregação temos o resultado de quantos cliente estão inativos no site de compras.
+```SQL
+SELECT NOME, PRIMEIRA_COMPRA
+FROM tabela_de_clientes 
+WHERE PRIMEIRA_COMPRA=0;
+```
+<p align="left">
+  <img alt="" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/ce763d93-05a9-41e2-addf-8f1787b8da78">
+</p>
+
+Na tabela de cliente há uma coluna que expressa se um cliente cadastrado já fez uma compra ou não, isso seria interessante para campanhas marketing ou cupons direcionadas a esses 
 
 ### 5. Qual o estado que mais comprou?
+```SQL
+SELECT inf.NUMERO, SUM(QUANTIDADE) AS Total_itens, nf.CPF, tbc.ESTADO 
+FROM itens_notas_fiscais inf, notas_fiscais nf, tabela_de_clientes tbc
+WHERE inf.NUMERO = nf.NUMERO
+AND nf.CPF = tbc.CPF
+GROUP BY inf.NUMERO LIMIT 5;
+```
+<p align="left">
+  <img alt="" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/02987432-e10a-4745-a3cd-c06fd18f3070">
+</p>
 
+Para resolver essa questão, precisei recuperar informações de 3 tabelas distintas.
+Iniciei por fazer uma contagem da tabela *itens_nota_fiscal*, então agrupei todos os itens por nota. Após essa etapa, recuperei na tabela *notas_fiscais*, o CPF dos clientes. E por fim, recuperei na tabela *tabela_de_clientes*, os estados cadastrados por cliente para fazer um agrupamento por estados da quantidade de produtos vendidos.
 
+```SQL
+SELECT ESTADO, COUNT(Total_itens) AS Total FROM
+    (SELECT inf.NUMERO, SUM(QUANTIDADE) AS Total_itens, nf.CPF, tbc.ESTADO 
+     FROM itens_notas_fiscais inf, notas_fiscais nf, tabela_de_clientes tbc
+     WHERE inf.NUMERO = nf.NUMERO
+     AND nf.CPF = tbc.CPF
+     GROUP BY inf.NUMERO) 
+     AS subconsulta
+GROUP BY ESTADO
+ORDER BY Total DESC;
+```
+<p align="left">
+  <img alt="" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/0656e4f6-e667-4ea4-8ad2-aa6856d285cb">
+</p>
+
+A primeira instrução criada virou uma subconsulta para a segunda instrução, chegando na resposta requerida com 50395 itens vendidos para o estado do Rio de Janeiro e 37482 para o Estado de São Paulo. Informação validade pela quantidade de registros na tabela *notas_fiscais*.
 
 ### 6. Qual o melhor vendedor?
 
