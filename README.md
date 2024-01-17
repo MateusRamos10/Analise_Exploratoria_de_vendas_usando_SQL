@@ -162,17 +162,7 @@ SELECT NOME, VOLUME_DE_COMPRA FROM tabela_de_clientes
   <img alt="Dashboard" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/7399d564-9e87-4076-b296-f793153274ea">
 </p>
 
-```SQL
-SELECT NOME, ENDERECO_1, CIDADE, BAIRRO, ESTADO, CEP 
-	FROM tabela_de_clientes 
-	WHERE CPF = 50534475787;
-```
-<p align="left">
-  <img alt="Dashboard" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/0cb3b642-5141-4a43-86cc-7cabb5e47792">
-</p>
 Nesses 4 anos Abel Silva é o o cliente que mais comprou com um volume de $ 26.000.
-
-Em um cenário onde aconteça um sorteio, Abel teria mais bilhetes e probabilidade maior de ganhar, com seu endereço é possível ter uma previsão de um frete se precisar enviar algum prêmio para esse cliente.
 
 ### 3. Em um cenário onde todos os vendedores tem o mesmo salário-base e eles recebem um percentual de vendas. Qual o vendedor com maior percentual de comissão?
 ```SQL
@@ -255,8 +245,18 @@ ORDER BY Total DESC;
 A primeira instrução criada virou uma subconsulta para a segunda instrução, chegando na resposta requerida com 50395 itens vendidos para o estado do Rio de Janeiro e 37482 para o Estado de São Paulo. Informação validade pela quantidade de registros na tabela *notas_fiscais*.
 
 ### 6. Qual o melhor vendedor?
+```SQL
+SELECT tdv.NOME Nome, nf.MATRICULA ID_Vendedor, COUNT(NF.MATRICULA) Total_Vendas
+FROM notas_fiscais nf
+INNER JOIN tabela_de_vendedores tdv
+USING (MATRICULA)
+GROUP BY NF.MATRICULA;
+```
+<p align="left">
+  <img alt="" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/e5690285-49ee-41b6-bec1-9c9b0ec7c144">
+</p>
 
-
+Para responder essa pergunta, fiz uma contagem na tabela de notas fiscal quantas vezes apareceu o ID dos vendedores e fiz uma agregação. Também fiz uma junção das tabelas para recuperar o nome do vendedor de acordo com o ID encontrado na nota fiscal.
 
 ### 7. Quais os níveis de senioridade dos vendedores de acordo com o tempo na empresa? 
 **Senior > 3 anos 
@@ -267,57 +267,63 @@ Sendo que nossa base tem registros de 2014 a 2017**
 
 
 ### 8. Qual a venda que teve o maior faturamento?
+```SQL
+SELECT 
+    inf.NUMERO AS Nota_fiscal,
+    ROUND(SUM(inf.PRECO * inf.QUANTIDADE), 2) AS Valor_Total
+FROM itens_notas_fiscais inf	
+GROUP BY inf.NUMERO
+ORDER BY Valor_Total desc LIMIT 5;
+```
+<p align="left">
+  <img alt="" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/6fc2cb1e-3a48-42a0-b9c3-622c378cc1cf">
+</p>
 
+A maior venda foi no valor de $ 9211.09
 
+### 9. Qual a venda que teve a maior quantidade de produtos?
+```SQL
+SELECT NUMERO Nota_fiscal, SUM(QUANTIDADE) Quantidade_Itens FROM itens_notas_fiscais 
+GROUP BY NUMERO
+ORDER BY Quantidade_itens desc
+LIMIT 5;
+```
+<p align="left">
+  <img alt="" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/1dd1c296-7800-4b6c-87c6-a7fcb1ee07a0">
+</p>
 
-### 9. Qual a venda que teve a maior quantidade?
-
-
+A nota fiscal com mais itens tem a quantidade 381 unidades.
 
 ### 10. Qual geração compra mais, X,Y ou Z? Quero lançar um novo sabor, qual meu publico alvo?
 
 
 
+
 ### 11. Quero fazer um evento, em que região posso promover esse evento?
-
-
+```SQL
+SELECT CIDADE, COUNT(CIDADE) 
+FROM tabela_de_clientes 
+GROUP BY CIDADE;
+```
+<p align="left">
+  <img alt="" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/a633a239-2017-440f-9c91-03959e347fa0">
+</p>
+Todos os nossos clientes são de São Paulo e do Rio de Janeiro.
 
 ### 12. Em um sorteio que cada cliente ganha 1 bilhete por compra, qual cliente tem mais chance de ganhar e qual a localização desse cliente, antecipando o valor do frete em um envio de produtos?
+```SQL
+SELECT tdc.NOME, COUNT(nf.NUMERO) Quantidade_notas 
+FROM notas_fiscais nf INNER JOIN tabela_de_clientes tdc
+USING (CPF)
+GROUP BY nf.CPF
+ORDER BY Quantidade_notas DESC
+LIMIT 5;
+```
+<p align="left">
+  <img alt="" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/ade94998-a02e-4a85-9a07-b40ba7b813a1">
+</p>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Com 6384 notas fiscais emitidas, Petra Oliveira teria mais chances de ganhar, caso houvesse um sorteio.
 
 ## Resultados
 
