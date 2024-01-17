@@ -127,6 +127,8 @@ Outra representação que o MySQL Workbench tem, é uma representação das prop
 Após visualizar o cabeçalho de todas as tabelas, verificar as informações com mais atenção e conhecer como está estruturado a base de dados, já se pode usar a criatividade e aplicar as consultas para extrair as informações e análises direcionadas pelos dados e pelas **perguntas**. Para a organização desse etapa, separei algumas **perguntas e contextos** para serem respondidas pelos dados:
 
 <br>
+<br>
+<br>
 
 ### 1. Quantos produtos são comercializados e qual o mais vendido?
 ```SQL
@@ -134,7 +136,7 @@ SELECT DISTINCT CODIGO_DO_PRODUTO, NOME_DO_PRODUTO FROM tabela_de_produtos
 	ORDER BY CODIGO_DO_PRODUTO DESC;
 ```
 <p align="left">
-  <img alt="Dashboard" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/a87baa66-80c2-4d9f-882d-d27ade924631">
+  <img alt="Dashboard" width="65%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/a87baa66-80c2-4d9f-882d-d27ade924631">
 </p>
 
 ```SQL
@@ -147,11 +149,15 @@ SELECT inf.CODIGO_DO_PRODUTO, p.NOME_DO_PRODUTO, COUNT(inf.QUANTIDADE) AS Total_
     LIMIT 5; 
 ```
 <p align="left">
-  <img alt="Dashboard" width="95%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/6c5468a8-6500-47dd-b599-43bb7c153f4d">
+  <img alt="Dashboard" width="73%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/6c5468a8-6500-47dd-b599-43bb7c153f4d">
 </p>
 
 Temos o resultado de 31 produtos sendo comercializados.
 E também o top 5 produtos mais vendidos.
+
+<br>
+<br>
+<br>
 
 ### 2. Qual o cliente mais fiel?
 ```SQL
@@ -159,10 +165,14 @@ SELECT NOME, VOLUME_DE_COMPRA FROM tabela_de_clientes
 	ORDER BY VOLUME_DE_COMPRA desc LIMIT 5;
 ```
 <p align="left">
-  <img alt="Dashboard" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/7399d564-9e87-4076-b296-f793153274ea">
+  <img alt="Dashboard" width="55%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/7399d564-9e87-4076-b296-f793153274ea">
 </p>
 
 Nesses 4 anos Abel Silva é o o cliente que mais comprou com um volume de $ 26.000.
+
+<br>
+<br>
+<br>
 
 ### 3. Em um cenário onde todos os vendedores tem o mesmo salário-base e eles recebem um percentual de vendas. Qual o vendedor com maior percentual de comissão?
 ```SQL
@@ -170,7 +180,7 @@ SELECT NOME, PERCENTUAL_COMISSAO FROM tabela_de_vendedores
 	ORDER BY PERCENTUAL_COMISSAO DESC;
 ```
 <p align="left">
-  <img alt="Dashboard" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/212b8fc9-b838-4c7d-97ae-787907c99228">
+  <img alt="Dashboard" width="55%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/212b8fc9-b838-4c7d-97ae-787907c99228">
 </p>
 
 ```SQL
@@ -182,12 +192,16 @@ SELECT v.NOME, COUNT(nf.MATRICULA) as Quantidade_Vendida FROM notas_fiscais nf
 ```
 
 <p align="left">
-  <img alt="Dashboard" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/2904c45f-ece2-4b80-9a1b-48b9f7081e4b">
+  <img alt="Dashboard" width="65%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/2904c45f-ece2-4b80-9a1b-48b9f7081e4b">
 </p>
 Roberta e Péricles são os vendedores que mais ganham comissão.
 Porém quando verificamos o volume de vendas de cada vendedor, vemos que Péricles não tem nenhuma venda, então Roberta é a vendedora com mais comissão.
 Também é possível avaliar que dos outros dois vendedores, ela é a que menos vendeu.
 Cabe uma avaliação da Roberta e também avaliar uma promoção para o Márcio e a Cláudia.
+
+<br>
+<br>
+<br>
 
 ### 4. Quantos clientes ainda não compraram no nosso site?
 ```SQL
@@ -198,7 +212,7 @@ WHERE PRIMEIRA_COMPRA = 0
 GROUP BY PRIMEIRA_COMPRA;
 ```
 <p align="left">
-  <img alt="" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/4780299f-342e-44ef-876f-4a770e52e052">
+  <img alt="" width="65%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/4780299f-342e-44ef-876f-4a770e52e052">
 </p>
 
 ```SQL
@@ -207,10 +221,14 @@ FROM tabela_de_clientes
 WHERE PRIMEIRA_COMPRA=0;
 ```
 <p align="left">
-  <img alt="" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/ce763d93-05a9-41e2-addf-8f1787b8da78">
+  <img alt="" width="65%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/ce763d93-05a9-41e2-addf-8f1787b8da78">
 </p>
 
 Na tabela de cliente há uma coluna que expressa se um cliente cadastrado já fez uma compra ou não, isso seria interessante para campanhas marketing ou cupons direcionadas a esses 
+
+<br>
+<br>
+<br>
 
 ### 5. Qual o estado que mais comprou?
 ```SQL
@@ -221,7 +239,7 @@ AND nf.CPF = tbc.CPF
 GROUP BY inf.NUMERO LIMIT 5;
 ```
 <p align="left">
-  <img alt="" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/02987432-e10a-4745-a3cd-c06fd18f3070">
+  <img alt="" width="65%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/02987432-e10a-4745-a3cd-c06fd18f3070">
 </p>
 
 Para resolver essa questão, precisei recuperar informações de 3 tabelas distintas.
@@ -239,10 +257,14 @@ GROUP BY ESTADO
 ORDER BY Total DESC;
 ```
 <p align="left">
-  <img alt="" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/0656e4f6-e667-4ea4-8ad2-aa6856d285cb">
+  <img alt="" width="65%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/0656e4f6-e667-4ea4-8ad2-aa6856d285cb">
 </p>
 
 A primeira instrução criada virou uma subconsulta para a segunda instrução, chegando na resposta requerida com 50395 itens vendidos para o estado do Rio de Janeiro e 37482 para o Estado de São Paulo. Informação validade pela quantidade de registros na tabela *notas_fiscais*.
+
+<br>
+<br>
+<br>
 
 ### 6. Qual o melhor vendedor?
 ```SQL
@@ -253,18 +275,42 @@ USING (MATRICULA)
 GROUP BY NF.MATRICULA;
 ```
 <p align="left">
-  <img alt="" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/e5690285-49ee-41b6-bec1-9c9b0ec7c144">
+  <img alt="" width="65%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/e5690285-49ee-41b6-bec1-9c9b0ec7c144">
 </p>
 
 Para responder essa pergunta, fiz uma contagem na tabela de notas fiscal quantas vezes apareceu o ID dos vendedores e fiz uma agregação. Também fiz uma junção das tabelas para recuperar o nome do vendedor de acordo com o ID encontrado na nota fiscal.
+
+<br>
+<br>
+<br>
 
 ### 7. Quais os níveis de senioridade dos vendedores de acordo com o tempo na empresa? 
 **Senior > 3 anos 
 Pleno > 2 e < 3 anos
 Junior 0 a 2 anos
-Sendo que nossa base tem registros de 2014 a 2017**
+Sendo que nossa base tem registros de 2014 a 2017 e estamos no ano de 2018**
+```SQL
+SELECT
+    NOME,
+    DATA_ADMISSAO,
+    CASE
+        WHEN TIMESTAMPDIFF(YEAR, DATA_ADMISSAO, '2018-01-01') > 3 THEN 'Senior'
+        WHEN TIMESTAMPDIFF(YEAR, DATA_ADMISSAO, '2018-01-01') >= 2 AND TIMESTAMPDIFF(YEAR, DATA_ADMISSAO, '2018-01-01') <= 3 THEN 'Pleno'
+        WHEN TIMESTAMPDIFF(YEAR, DATA_ADMISSAO, '2018-01-01') >= 0 AND TIMESTAMPDIFF(YEAR, DATA_ADMISSAO, '2018-01-01') < 2 THEN 'Junior'
+        ELSE 'Outra Categoria'
+    END AS Categoria
+FROM
+    tabela_de_vendedores;
+```
+<p align="left">
+  <img alt="" width="65%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/374d568b-130c-4533-804b-503d8bcd7166">
+</p>
+Usando *TIMESTAMPDIFF*, conseguimos fazer cálculo entre as datas, classificando os vendedores de acordo com seu tempo de trabalho.
+Mesmo sabendo que experiência não se mede apenas com o tempo de trabalho, essa é uma métrica para encontrar essa resposta.
 
-
+<br>
+<br>
+<br>
 
 ### 8. Qual a venda que teve o maior faturamento?
 ```SQL
@@ -276,10 +322,14 @@ GROUP BY inf.NUMERO
 ORDER BY Valor_Total desc LIMIT 5;
 ```
 <p align="left">
-  <img alt="" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/6fc2cb1e-3a48-42a0-b9c3-622c378cc1cf">
+  <img alt="" width="65%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/6fc2cb1e-3a48-42a0-b9c3-622c378cc1cf">
 </p>
 
 A maior venda foi no valor de $ 9211.09
+
+<br>
+<br>
+<br>
 
 ### 9. Qual a venda que teve a maior quantidade de produtos?
 ```SQL
@@ -289,15 +339,38 @@ ORDER BY Quantidade_itens desc
 LIMIT 5;
 ```
 <p align="left">
-  <img alt="" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/1dd1c296-7800-4b6c-87c6-a7fcb1ee07a0">
+  <img alt="" width="65%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/1dd1c296-7800-4b6c-87c6-a7fcb1ee07a0">
 </p>
 
 A nota fiscal com mais itens tem a quantidade 381 unidades.
 
-### 10. Qual geração compra mais, X,Y ou Z? Quero lançar um novo sabor, qual meu publico alvo?
+<br>
+<br>
+<br>
 
+### 10. Qual geração compra mais, X,Y ou Z? Quero lançar um novo sabor, qual meu pÚblico alvo?
+```SQL
+SELECT
+    NOME,
+    DATA_DE_NASCIMENTO,
+    CASE
+        WHEN YEAR(DATA_DE_NASCIMENTO) BETWEEN 1965 AND 1980 THEN 'Geração X'
+        WHEN YEAR(DATA_DE_NASCIMENTO) BETWEEN 1981 AND 1996 THEN 'Geração Y (Millennials)'
+        WHEN YEAR(DATA_DE_NASCIMENTO) BETWEEN 1997 AND 2010 THEN 'Geração Z'
+        WHEN YEAR(DATA_DE_NASCIMENTO) >= 2011 THEN 'Geração Alfa'
+        ELSE 'Outra Geração'
+    END AS Geracao
+FROM
+    tabela_de_clientes;
+```
+<p align="left">
+  <img alt="" width="65%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/714d0b68-9160-4599-9b13-d3835c85d721">
+</p>
+Temos 13 clientes na geração Y e apenas 2 na geração Z, pode ser uma informação relevante antes de fazer uma campanha de marketing.
 
-
+<br>
+<br>
+<br>
 
 ### 11. Quero fazer um evento, em que região posso promover esse evento?
 ```SQL
@@ -306,9 +379,13 @@ FROM tabela_de_clientes
 GROUP BY CIDADE;
 ```
 <p align="left">
-  <img alt="" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/a633a239-2017-440f-9c91-03959e347fa0">
+  <img alt="" width="65%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/a633a239-2017-440f-9c91-03959e347fa0">
 </p>
 Todos os nossos clientes são de São Paulo e do Rio de Janeiro.
+
+<br>
+<br>
+<br>
 
 ### 12. Em um sorteio que cada cliente ganha 1 bilhete por compra, qual cliente tem mais chance de ganhar e qual a localização desse cliente, antecipando o valor do frete em um envio de produtos?
 ```SQL
@@ -320,10 +397,14 @@ ORDER BY Quantidade_notas DESC
 LIMIT 5;
 ```
 <p align="left">
-  <img alt="" width="80%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/ade94998-a02e-4a85-9a07-b40ba7b813a1">
+  <img alt="" width="65%" src="https://github.com/MateusRamos10/SQL_Marketing/assets/43836795/ade94998-a02e-4a85-9a07-b40ba7b813a1">
 </p>
 
 Com 6384 notas fiscais emitidas, Petra Oliveira teria mais chances de ganhar, caso houvesse um sorteio.
+
+<br>
+<br>
+<br>
 
 ## Resultados
 
