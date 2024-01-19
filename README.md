@@ -15,11 +15,11 @@ O objetivo deste projeto é realizar uma análise exploratória de uma base de d
 se as tabelas estão cumprindo as **formas normais**, embora será aplicado algumas dessas regras para melhorar a compreenssão das consultas.
 O contexto é uma loja que comercializa sucos e quer potencializar suas vendas usando dados.
 
-**Para acessar o arquivo no Colab, clique no link abaixo:**
+**Para acessar o arquivo com as perguntas no Colab, clique no link abaixo:**
  - [Projeto no Colab](https://colab.research.google.com/drive/17lsOdQxSAA1CTmmYqIMOUsk_MFFr6r8Q?usp=sharing)
 
 ## Fonte dos Dados
-Os dados foram obtidos de uma formação, portanto está indisponível para download.
+Os dados foram obtidos de uma formação, portanto para fazer o download, apenas pelo arquivo disponível nesse repositório.
 
 ## Tecnologias Utilizadas
 <p align="left">  
@@ -37,6 +37,10 @@ Os dados foram obtidos de uma formação, portanto está indisponível para down
 <br>
 
 ## Mãos a obra...
+
+> Caso prefira, clique abaixo para pular o desenvolvimento deste trabalho direto para os Resultados.
+> <br>
+> **[Resultados](#resultados)**
 
 ### 1. Entendendo os Dados
 O foco nesse trabalho é fazer uma análise dos dados. Então partindo do pressuposto que os dados já foram gerados, limpos e carregados no SGBD escolhido, é necessário fazer uma primeira análise para entender os dados que estão contidos e quais informações esses dados podem fornecer. 
@@ -406,7 +410,63 @@ Com 6384 notas fiscais emitidas, Petra Oliveira teria mais chances de ganhar, ca
 <br>
 <br>
 
-## Resultados
+## Resultados <a id="resultados"></a>
+Projeto iniciado com uma base de dados em SQL.
+- Fiz uma análise inicial para entender a base;
+- Criado a relação visual entre as tabelas;
+- Realizado consultas com as cláulas como SELECT, WHERE, GROUP BY, ORDER BY, LIMIT;
+- Realizado consultas usando a expressão CASE, função COUNT, ALIASES e junções com JOIN.
+
+Deixo abaixo algumas conclusões extraídas dos dados e caso tenha dúvida, sugestão ou alguma correção, deixo meu linkedin abaixo:
+	
+[Vamos no conectar!](https://www.linkedin.com/in/mateus-simoes-ramos/)
+
+---
+## Produtos
+
+<p align="left">
+  <img alt="" width="30%" src="https://github.com/MateusRamos10/Analise_Exploratoria_de_vendas_usando_SQL/assets/43836795/c2cdac56-849e-4f81-96cd-bfe82ccd4b82">
+</p>
+
+Há 31 produtos comercializados, com 50395 itens vendidos para o Rio e 37482 para São Paulo
+
+---
+## Clientes
+
+<p align="left">
+  <img alt="" width="30%" src="https://github.com/MateusRamos10/Analise_Exploratoria_de_vendas_usando_SQL/assets/43836795/b8d57a7f-edb5-46aa-8a90-5e6882f795b0">
+</p>
+
+Compradores apenas de São Paulo e do Rio de Janeiro, em uma hipótese de promover algum evento ou filial envolvendo logística, essa é uma informação importante.
+
+6 clientes nunca compraram nenhum produto, cupons e promoções podem ser oferecidos para primeira compra.
+
+Caso houvesse um sorteio, o cliente com mais bilhetes pela quantidade de ordens geradas é a Petra Oliveira com 6384 notas geradas, antecipar um frente para calcular um envio de prêmio no endereço dessa cliente.
+
+87% dos nossos clientes pertencem a geração Y, uma informação como esta pode indicar um tipo de consumo ou um meio de comunição preferido. 
+
+As gerações tem maneiras diferentes de consumo e pode ser algo importante na hora de definir uma campanha marketing.
+
+---
+## Funcionários
+
+<p align="left">
+  <img alt="" width="30%" src="https://github.com/MateusRamos10/Analise_Exploratoria_de_vendas_usando_SQL/assets/43836795/0b176311-9abf-452a-ba28-a1920e903d23">
+</p>
+
+Sabemos também que os vendedores mais eficientes e mais antigos da empresa (Márcio e Cláudia) tem a menor porcentagem de comissão, isso não corresponde a lógica.
+Um deles não é vendedor pois não tem nenhum registro de vendas resultando em um erro no Dataset (Péricles).
+
+<br>
+<br
+	
+Esse trabalho foi desenvolvimento a fim de mostrar algumas de minhas habilidades em SQL e espero que tenha gostado! Deixo abaixo meu contato:
+
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mateus-simoes-ramos/)&nbsp;
+[![Email](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:mateusramos.oficial@gmail.com)&nbsp;
+[![Perfil DIO](https://img.shields.io/badge/-Meu%20Perfil%20na%20DIO-000?style=for-the-badge)](https://web.dio.me/users/mateusramos_oficial?tab=skills)
+*mailto: mateusramos.oficial@gmail.com*
+<!-- Meu site -->
 
 
 
