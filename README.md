@@ -289,10 +289,11 @@ Para responder essa pergunta, fiz uma contagem na tabela de notas fiscal quantas
 <br>
 
 ### 7. Quais os níveis de senioridade dos vendedores de acordo com o tempo na empresa? 
-**Senior > 3 anos 
-Pleno > 2 e < 3 anos
-Junior 0 a 2 anos
-Sendo que nossa base tem registros de 2014 a 2017 e estamos no ano de 2018**
+**<p>Senior > 3 anos </p>**
+**<p> Pleno > 2 e < 3 anos </p>**
+**<p> Junior 0 a 2 anos </p>**
+**<p> Sendo que nossa base tem registros de 2014 a 2017 e estamos no ano de 2018 </p>**
+	
 ```SQL
 SELECT
     NOME,
@@ -424,7 +425,7 @@ Deixo abaixo algumas conclusões extraídas dos dados e caso tenha dúvida, suge
 ---
 ## Produtos
 
-<p align="left">
+<p align="center">
   <img alt="" width="30%" src="https://github.com/MateusRamos10/Analise_Exploratoria_de_vendas_usando_SQL/assets/43836795/c2cdac56-849e-4f81-96cd-bfe82ccd4b82">
 </p>
 
@@ -433,7 +434,7 @@ Há 31 produtos comercializados, com 50395 itens vendidos para o Rio e 37482 par
 ---
 ## Clientes
 
-<p align="left">
+<p align="center">
   <img alt="" width="30%" src="https://github.com/MateusRamos10/Analise_Exploratoria_de_vendas_usando_SQL/assets/43836795/b8d57a7f-edb5-46aa-8a90-5e6882f795b0">
 </p>
 
@@ -450,7 +451,7 @@ As gerações tem maneiras diferentes de consumo e pode ser algo importante na h
 ---
 ## Funcionários
 
-<p align="left">
+<p align="center">
   <img alt="" width="30%" src="https://github.com/MateusRamos10/Analise_Exploratoria_de_vendas_usando_SQL/assets/43836795/0b176311-9abf-452a-ba28-a1920e903d23">
 </p>
 
